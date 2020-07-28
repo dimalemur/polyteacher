@@ -1,3 +1,3 @@
 export default interface Page {
-  color: string;
-}
+  color: string
+};

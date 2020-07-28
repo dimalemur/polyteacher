@@ -1,0 +1,104 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "project": "./tsconfig.json",
+    "useJSXTextNode": true
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "import/prefer-default-export": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+   ],
+    "no-unused-vars": "off",
+    "consistent-return": "off",
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "no-else-return": "off",
+    "react/prop-types": "off",
+    "no-console": "off",
+    "no-underscore-dangle": "off",
+    "func-names": "off",
+    "no-useless-catch": "off",
+    "eqeqeq": "error",
+    "no-multi-spaces": "error",
+    "radix": "error",
+    "lines-between-class-members": "error",
+    "no-trailing-spaces": "error",
+    "no-var": "error",
+    "eol-last": "error",
+    "prefer-const": "error",
+    "space-in-parens": "error",
+    "keyword-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1
+      }
+    ],
+    "jsx-quotes": [
+      "error",
+      "prefer-single"
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 170,
+        "tabWidth": 4
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
+    "react/no-did-mount-set-state": "error",
+    "react/no-did-update-set-state": "error",
+    "react/jsx-closing-bracket-location": "error"
+  }
+}

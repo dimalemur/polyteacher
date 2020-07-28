@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   context: path.join(__dirname, '/src/client'),
@@ -10,7 +9,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: '[name].js'
+    filename: '[name].js',
   },
   optimization: {
     runtimeChunk: 'single',
@@ -22,12 +21,9 @@ module.exports = {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
           name(module) {
-            // получает имя, то есть node_modules/packageName/not/this/part.js
-            // или node_modules/packageName
-            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
-
-            // имена npm-пакетов можно, не опасаясь проблем, использовать
-            // в URL, но некоторые серверы не любят символы наподобие @
+            const packageName = module.context.match(
+              /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
+            )[1];
             return `npm.${packageName.replace('@', '')}`;
           },
         },
@@ -38,7 +34,12 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader'
+        use: [
+          {
+            loader: 'awesome-typescript-loader',
+          },
+        ],
+        exclude: /node_modules/,
       },
       {
         test: /\.(pcss|css)$/,
@@ -68,10 +69,10 @@ module.exports = {
         test: /\.(otf|ttf|eot)$/,
         use: 'file-loader',
       },
-    ]
+    ],
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js'],
   },
   plugins: [
     new MiniCssExtractPlugin({
@@ -79,8 +80,8 @@ module.exports = {
       chunkFilename: '[id].css',
     }),
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: '../resources/index.html',
     }),
-    new CleanWebpackPlugin()
-  ]
-}
+    // new CleanWebpackPlugin()
+  ],
+};
