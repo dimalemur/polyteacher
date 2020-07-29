@@ -1,5 +1,5 @@
 import React from 'react';
-import PageInterface from './appinterface';
+import { PageInterface } from './appinterface';
 import './app.pcss';
 
 export const App: React.FunctionComponent<PageInterface> = (props) => {

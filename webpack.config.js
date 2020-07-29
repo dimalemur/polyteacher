@@ -1,14 +1,42 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+var nodeExternals = require('webpack-node-externals');
 
-module.exports = {
+const serverConfig = {
+  mode: process.env.NODE_ENV || 'development',
+  entry: './src/server/app.ts',
+  module: {
+      rules: [
+          {
+              test: /\.tsx?$/,
+              loader: 'awesome-typescript-loader',
+              exclude: /node_modules/,
+          }
+      ]
+  },
+  resolve: {
+      extensions: ['.tsx', '.ts', '.js']
+  },
+  output: {
+      filename: 'app.js',
+      path: path.resolve(__dirname, 'dist')
+  },
+  target: 'node',
+  node: {
+      __dirname: false
+  },
+  externals: [nodeExternals()]
+};
+
+const clientConfig = {
+  mode: process.env.NODE_ENV || 'development',
   context: path.join(__dirname, '/src/client'),
   entry: {
     main: './index.tsx',
   },
   output: {
-    path: path.join(__dirname, '/dist'),
+    path: path.join(__dirname, '/public/build'),
     filename: '[name].js',
   },
   optimization: {
@@ -85,3 +113,5 @@ module.exports = {
     // new CleanWebpackPlugin()
   ],
 };
+
+module.exports = [clientConfig,serverConfig]
