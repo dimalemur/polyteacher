@@ -1,3 +1,3 @@
-export interface PageInterface {
+export interface AppInterface {
   color: string
 }
