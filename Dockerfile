@@ -4,11 +4,9 @@ RUN mkdir -p /usr/src/polyteacher/
 WORKDIR /usr/src/polyteacher/
 
 COPY . /usr/src/polyteacher/
-RUN npm install
+# RUN npm install
 
 EXPOSE 3000
-
-# ENV TZ Europe/Moskow
 
 CMD [ "npm","run","dev" ]
 
