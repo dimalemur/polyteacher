@@ -1,0 +1,21 @@
+version: "3"
+
+volumes: 
+  mongo:
+
+services: 
+  polyteacher:
+    build: .
+    restart: always
+    ports: 
+      - 3000:3000
+    environment: 
+      - TZ=Europe/Moskow
+    volumes: 
+      - .:/usr/src/polyteacher/
+  
+  mongodb:
+    image: mongo:latest
+    volumes: 
+      - mongo:/data/db
+    restart: always
