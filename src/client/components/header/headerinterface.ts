@@ -1,3 +1,4 @@
 export interface HeaderInterface {
-  color: string
+  color: string,
+  asyncAddTeacher:(name:string, surname:string, patronymic:string)=> void
 }

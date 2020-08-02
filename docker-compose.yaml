@@ -11,11 +11,18 @@ services:
       - 3000:3000
     environment: 
       - TZ=Europe/Moskow
+      - MONGO_DB_ADDR=mongodb
+      - MONGO_DB_PROT=27017
+      - STORAGE_SERVICE_IMPL=MongodbService
+    depends_on: 
+      - mongodb
     volumes: 
       - .:/usr/src/polyteacher/
   
   mongodb:
-    image: mongo:latest
+    image: mongo:4.4
+    ports:
+      - 27017:27017
     volumes: 
       - mongo:/data/db
     restart: always

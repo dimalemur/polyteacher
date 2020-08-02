@@ -6,6 +6,7 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import apiRouter from './routes';
 import config from './config';
+import './db/mongo';
 
 const app = express();
 const staticWay = path.resolve(`${__dirname}../../public/build/`);
@@ -22,7 +23,7 @@ app
   }))
   .use(bodyParser.json())
   .use('/', staticHandler)
-  .use(apiRouter);
+  .use('/api', apiRouter);
 
 app.listen(config.port, () => {
   console.log(`Server is started in http://127.0.0.1:${config.port}/`);
