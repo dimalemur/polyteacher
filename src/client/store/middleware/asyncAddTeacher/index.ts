@@ -1,7 +1,8 @@
 import { ThunkDispatch } from 'redux-thunk';
 import { setUser } from '../../reducers/mainPageReducer/actions';
 
-export const asyncAddTeacher = (name: string, surname: string, patronymic: string) => (dispatch:ThunkDispatch<any, any, any>): void => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const asyncAddTeacher = (name: string, surname: string, patronymic: string) => (dispatch:ThunkDispatch<unknown, unknown, any>): void => {
   fetch('/api/teachers', {
     credentials: 'same-origin',
     method: 'Post',

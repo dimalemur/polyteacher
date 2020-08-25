@@ -1,7 +1,6 @@
 import {
   SetUserAction, UserInterface,
 } from './types';
-
-export const SET_USER = 'SET_USER';
+import { SET_USER } from './actionTypes';
 
 export const setUser = (user:UserInterface):SetUserAction => ({ type: SET_USER, user });

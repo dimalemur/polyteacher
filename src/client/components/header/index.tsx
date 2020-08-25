@@ -6,7 +6,7 @@ import './header.pcss';
 
 const Header: React.FunctionComponent<HeaderInterface> = (props) => (
     <div className={`Header Header_${props.color}`}>
-       color is fucking {props.color}
+       color is fucking sads {props.color}
        <button onClick = {() => { props.asyncAddTeacher('Хван', 'Дмитрий', 'Алексеевич'); }}>Добавить</button>
     </div>
 );

@@ -9,7 +9,9 @@ import config from './config';
 import './db/mongo';
 
 const app = express();
-const staticWay = path.resolve(`${__dirname}../../public/build/`);
+
+const rootDir = (process.env.PWD !== undefined) ? process.env.PWD : '/';
+const staticWay = path.join(rootDir, '/public/build/');
 
 const staticHandler = express.static(staticWay);
 
@@ -22,8 +24,9 @@ app
     secret: config.secret,
   }))
   .use(bodyParser.json())
+  .use('/api', apiRouter)
   .use('/', staticHandler)
-  .use('/api', apiRouter);
+  .use('/auth', staticHandler);
 
 app.listen(config.port, () => {
   console.log(`Server is started in http://127.0.0.1:${config.port}/`);

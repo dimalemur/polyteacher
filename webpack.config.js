@@ -10,7 +10,7 @@ const serverConfig = {
       rules: [
           {
               test: /\.tsx?$/,
-              loader: 'awesome-typescript-loader',
+              loader: 'ts-loader',
               exclude: /node_modules/,
           }
       ]
@@ -64,7 +64,7 @@ const clientConfig = {
         test: /\.tsx?$/,
         use: [
           {
-            loader: 'awesome-typescript-loader',
+            loader: 'ts-loader',
           },
         ],
         exclude: /node_modules/,

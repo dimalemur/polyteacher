@@ -86,7 +86,7 @@
         "tabWidth": 4
       }
     ],
-    "@typescript-eslint/no-inferrable-types": 2,
+    "@typescript-eslint/no-inferrable-types": 0,
     "react/jsx-filename-extension": [
       1,
       {

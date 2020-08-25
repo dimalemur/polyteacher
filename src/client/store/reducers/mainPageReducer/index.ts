@@ -1,8 +1,7 @@
 import {
   MainPageActionsTypes, StateInterfase,
 } from './types';
-
-import { SET_USER } from './actions';
+import { SET_USER } from './actionTypes';
 
 export const initialState = {
   user: {},

@@ -14,6 +14,7 @@ services:
       - MONGO_DB_ADDR=mongodb
       - MONGO_DB_PROT=27017
       - STORAGE_SERVICE_IMPL=MongodbService
+      - POLYTEACHER_ROOT_DIR=/usr/src/polyteacher
     depends_on: 
       - mongodb
     volumes: 

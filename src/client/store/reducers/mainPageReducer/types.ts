@@ -1,7 +1,7 @@
 export interface UserInterface {
-  name:string,
-  surname:string,
-  age:number
+  name?:string,
+  surname?:string,
+  age?:number
 }
 
 interface pageStateInterface {
