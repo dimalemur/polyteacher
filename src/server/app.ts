@@ -6,12 +6,11 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import apiRouter from './routes';
 import config from './config';
-import './db/mongo';
+import { checkTocken } from './middleware/checkTocker';
 
 const app = express();
 
-const rootDir = (process.env.PWD !== undefined) ? process.env.PWD : '/';
-const staticWay = path.join(rootDir, '/public/build/');
+const staticWay = path.join(path.resolve(__dirname), '..', 'public', 'build');
 
 const staticHandler = express.static(staticWay);
 
@@ -22,11 +21,18 @@ app
     resave: true,
     saveUninitialized: true,
     secret: config.secret,
+    name: config.SESS_NAME,
+    cookie: {
+      maxAge: config.SESS_LIFETIME,
+      sameSite: true,
+    },
   }))
   .use(bodyParser.json())
   .use('/api', apiRouter)
   .use('/', staticHandler)
-  .use('/auth', staticHandler);
+  .use('/:pages', staticHandler)
+  .use('/login/authhelp/', staticHandler)
+  .use((req, res) => { res.send('Страница не найдена'); });
 
 app.listen(config.port, () => {
   console.log(`Server is started in http://127.0.0.1:${config.port}/`);

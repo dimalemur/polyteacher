@@ -1,0 +1,22 @@
+.ContentContainer {
+  display: flex;
+  width: 1240px;
+  max-width: 90vw;
+  background: var(--color-white);
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 86px;
+  margin: 0 auto;
+  &_small {
+    padding: 25px;
+    width: 300px;
+    height: 336px;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .ContentContainer {
+    padding: 25px;
+  }
+}

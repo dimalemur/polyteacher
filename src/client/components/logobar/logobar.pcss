@@ -1,0 +1,39 @@
+.Logobar {
+  &-Logo {
+    margin-left: 35px;
+  }
+  &-MenuIcon {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #Ficon {
+    cursor: pointer;
+  }
+
+  .Logobar {
+    pointer-events: all;
+
+    &-Logo {
+      left: 0;
+    }
+
+    &-MenuIcon {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .Logobar {
+    &-Logo {
+      margin-left: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .Logobar {
+    padding-top: 10px;
+  }
+}

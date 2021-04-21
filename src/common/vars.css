@@ -1,4 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 :root {
-  --color-blue: #77dde7;
+  --color-lightblue: #77dde7;
+  --color-darkblue: #121058;
+  --color-blue: #5754db;
+  --color-white: #fff;
   --color-red: #ad2222;
+  --color-gray: #302c2c;
+  --color-black: #2f2f2f;
+  --font-family-default: "Raleway", sans-serif;
+  --font-size-page-title-m: 3em;
+  --font-size-page-title-sm: 2em;
+  --with-menu-icon: 30px;
+  --height-menu-icon: 23px;
+  --with-menu: 3.5rem;
+  --width-menu-opened: 7.5rem;
+  --text-size-normal: 18px;
+  --text-size-sm: 20px;
+  --menu-open-transition: all 0.1s ease-out;
+  --mobile-menu-open-transition: all 0.3s ease-out;
 }

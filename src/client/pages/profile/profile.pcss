@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+.Profile {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.Profileinfo {
+  &-Profileimg {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.Profileimg {
+  &-Text {
+    font-family: var(--font-family-default);
+    font-style: normal;
+    font-weight: 500;
+    font-size: var(--text-size-normal);
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+}
+
+.Infoblock {
+  border-radius: 10px;
+  margin-bottom: 20px;
+
+  &-Title {
+    font-family: var(--font-family-default);
+    font-style: normal;
+    font-weight: bold;
+    font-size: var(--text-size-sm);
+    color: var(--color-darkblue);
+    height: 39.61px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  &-Orders {
+    padding-top: 32px;
+    a {
+      font-family: var(--font-family-default);
+      font-style: normal;
+      font-weight: 500;
+      font-size: var(--text-size-normal);
+      line-height: 21px;
+      text-decoration-line: none;
+      color: var(--color-black);
+      border-bottom: 2px solid;
+    }
+  }
+}
+
+.Personinfo {
+  &-Content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 32px 0 0 0;
+  }
+
+  &-Name {
+    display: grid;
+    text-align: left;
+    .Infoline {
+      margin-left: 19px;
+      margin-right: 18px;
+      text-align: right;
+    }
+  }
+
+  &-Value {
+    display: grid;
+    .Infoline {
+      margin-right: 19px;
+      margin-left: 18px;
+    }
+  }
+
+  &-NV_sm {
+    display: none;
+  }
+}
+
+.Infoline {
+  margin: 0;
+  margin-bottom: 0px;
+  font-family: var(--font-family-default);
+  font-style: normal;
+  font-weight: 300;
+  font-size: var(--text-size-normal);
+  color: #2f2f2f;
+  height: 2em;
+  b {
+    font-weight: 550;
+  }
+}
+
+.Orders {
+  &-Infoline {
+    font-family: "HelveticaNeueCyr", sans-serif;
+    height: auto;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .Personinfo {
+    &-Content {
+      display: block;
+      padding: 20px 0 0 0;
+    }
+
+    &-Name {
+      display: none;
+    }
+
+    &-Value {
+      display: none;
+    }
+
+    &-NV_sm {
+      display: block;
+    }
+  }
+
+  .Infoblock {
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+    &-Title {
+      font-size: var(--text-size-normal);
+    }
+  }
+
+  .Infoline {
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .Profileinfo {
+    &-Profileimg {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  .Profileimg {
+    &-Img {
+      width: 70px;
+      height: 70px;
+    }
+    &-Text {
+      display: flex;
+      align-items: center;
+      font-size: var(--text-size-normal);
+      margin-top: 0;
+      margin-bottom: 0;
+      text-align: left;
+      width: 113px;
+      margin-left: 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .Infoline {
+    overflow: auto;
+  }
+}

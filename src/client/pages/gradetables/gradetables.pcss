@@ -1,0 +1,237 @@
+.Grades {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  font-family: Raleway, sans-serif;
+
+  &-Content {
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+
+  &-Inner {
+    padding-top: 36px;
+  }
+
+  &-Title {
+    font-weight: bold;
+    color: white;
+    margin-right: 20px;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  &-Changesemester {
+    padding-top: 3rem;
+    width: 964px;
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    p {
+      margin: 0;
+    }
+  }
+
+  &-Loader {
+    width: 40px;
+    height: 40px;
+    background: black;
+    border-radius: 100px;
+    margin: 0 auto;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-name: rotation;
+    animation-iteration-count: infinite;
+    &_false {
+      display: none;
+    }
+    &_true {
+      display: block;
+    }
+  }
+}
+
+@keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.Gradetable {
+  margin-top: 22px;
+  border-bottom: 2px solid #121058;
+  border-right: 2px solid #121058;
+  border-left: 2px solid #121058;
+  border-radius: 5px;
+
+  &-Title {
+    display: grid;
+    height: 44px;
+    background: #121058;
+    font-size: 1rem;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    color: white;
+    align-items: center;
+    border-radius: 5px 5px 0px 0px;
+    grid-template-columns: 50% 25% 25%;
+  }
+
+  &-Content {
+    display: grid;
+    min-height: 46px;
+    grid-template-columns: 50% 25% 25%;
+    font-size: 1rem;
+  }
+
+  &-Name {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+    padding: 12px 26px;
+  }
+
+  &-Type {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    padding: 0 26px;
+  }
+
+  &-Grade {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    padding: 0 26px;
+    color: #479f79;
+    font-weight: bold;
+  }
+}
+
+.Title {
+  &-Name {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  &-Type {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  &-Grade {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.Semester {
+  &-Text {
+    color: #121058;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+
+.Coursechange {
+  width: 300px;
+  &:focus {
+    outline: none;
+  }
+  &-Select {
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .Semester {
+    &-Text {
+      line-height: 20px;
+      font-size: 20px;
+    }
+  }
+
+  .Grades {
+    &-Title {
+      margin-bottom: 20px;
+      margin-right: 0;
+    }
+    &-Changesemester {
+      flex-direction: column;
+    }
+  }
+  .Gradetable {
+    &-Content {
+      font-size: 11px;
+    }
+    &-Title {
+      font-size: 12px;
+    }
+    &-Name {
+      overflow: scroll;
+    }
+    &-Type {
+      overflow: scroll;
+    }
+    &-Grade {
+      overflow: scroll;
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .Gradetable {
+    &-Title {
+      font-size: 14px;
+    }
+  }
+  .Gradetable {
+    &-Content {
+      grid-template-columns: 50% 25% 25%;
+      font-size: 13px;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .Grades {
+    &-Content {
+      padding: 0 5% 36px;
+      max-width: 90%;
+    }
+  }
+  .Gradetable {
+    &-Content {
+      font-size: 11px;
+      text-align: left;
+    }
+    &-Title {
+      font-size: 12px;
+    }
+    &-Name {
+      padding: 5px;
+    }
+    &-Type {
+      padding: 0;
+    }
+    &-Grade {
+      padding: 0;
+    }
+  }
+}

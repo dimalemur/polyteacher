@@ -1,25 +1,20 @@
-import jwt from 'jsonwebtoken';
 import { Response, NextFunction } from 'express';
-import config from '../config';
 import { CustomRequest } from '../controllers/interfaces';
 
-export const checkTocken = (req:CustomRequest<undefined>, res:Response, next:NextFunction):void => {
-  const token = req.headers.authorization; // получаем токен из заголовка запроса
-  if (!token) {
+const getCookie = (cookie: string, name: string) => {
+  const matches = cookie.match(new RegExp(`(?:^|; )${name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1')}=([^;]*)`));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+};
+
+export const checkTocken = (req: CustomRequest<undefined>, res: Response, next: NextFunction): void => {
+  const reqCookie = req.headers.cookie;
+  const token = getCookie((reqCookie !== undefined) ? reqCookie : '', 'token'); // получаем токен из заголовка запроса
+
+  if (token === undefined) {
     res.status(403).send('Forbidden. No tocken!');
     return next();
   }
 
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  let tokenObj;
-  let _id:string;
-  try {
-    tokenObj = jwt.verify(token, config.secret);
-    _id = tokenObj._id;
-  } catch ({ message }) {
-    res.status(400).send(message);
-    return next();
-  }
-  req.userId = _id;
+  // console.log(`token = ${token}`);
   next();
 };

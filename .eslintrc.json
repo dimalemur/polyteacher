@@ -3,7 +3,12 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
       }
     }
   },
@@ -40,7 +45,7 @@
         "ts": "never",
         "tsx": "never"
       }
-   ],
+    ],
     "no-unused-vars": "off",
     "consistent-return": "off",
     "quotes": [
@@ -98,6 +103,22 @@
         ]
       }
     ],
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "types": {
+          // add a custom message to help explain why not to use it
+          "Foo": "Don't use Far because it is unsafe",
+          // add a custom message, AND tell the plugin how to fix it
+          "String": {
+            "message": "Use string instead",
+            "fixWith": "string"
+          },
+          "{}": false
+        }
+      }
+    ],
+    "@typescript-eslint/no-empty-interface":"off",
     "react/no-did-mount-set-state": "error",
     "react/no-did-update-set-state": "error",
     "react/jsx-closing-bracket-location": "error"

@@ -1,0 +1,79 @@
+.Logo {
+  position: relative;
+  display: flex;
+  &-Logorightside {
+    display: flex;
+    padding: 0 6px;
+    box-sizing: border-box;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    border-left: 1px solid white;
+  }
+  &-Logoleftside {
+    padding: 6px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.Logorightside {
+  &-Text {
+    font-family: var(--font-family-default);
+    color: var(--color-white);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 19px;
+    &_thin {
+      font-weight: 500;
+    }
+    &_md {
+      font-size: 16px;
+    }
+    &_sm {
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Logo {
+    &-Logoleftside {
+      padding-top: 0;
+      padding-bottom: 0;
+      img {
+        width: 125px;
+        height: 34px;
+      }
+    }
+    &-Logorightside {
+      font-size: 12px;
+    }
+  }
+  .Logorightside {
+    &-Text {
+      &_md {
+        font-size: 12px;
+      }
+      &_sm {
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .Logo {
+    &-Logoleftside {
+      padding: 6px;
+
+      img {
+        width: 80px;
+      }
+    }
+    &-Logorightside {
+      font-size: 8pt;
+      line-height: 12px;
+    }
+  }
+}

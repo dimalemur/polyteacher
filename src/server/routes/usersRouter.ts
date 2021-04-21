@@ -5,8 +5,10 @@ import { checkTocken } from '../middleware/checkTocker';
 export const usersRouter = express.Router();
 
 usersRouter
-  .post('/signin', UserControllers.authUser)
-  .post('/signup', UserControllers.regUser)
-  .use(checkTocken)
-  .post('/currentuser', UserControllers.getCurrentUser);
+  .post('/logout', UserControllers.logoutUser)
+  .post('/getuserbytoken', UserControllers.getUserByToken)
+  .get('/getuserdata', UserControllers.getUserData)
+  .get('/getusertabs', UserControllers.getUserTabs)
+  .post('/gradetables', UserControllers.getGradetables)
+  .use(checkTocken);
 

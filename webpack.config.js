@@ -109,6 +109,7 @@ const clientConfig = {
     }),
     new HtmlWebpackPlugin({
       template: '../resources/index.html',
+      favicon: "../resources/icons/favicons/favicon_auth.png"
     }),
     // new CleanWebpackPlugin()
   ],
